@@ -66,4 +66,3 @@ rez.cProjPC = [];
 fprintf('Saving final results in rez2  \n')
 fname = fullfile(rootZ, 'rez2.mat');
 save(fname, 'rez', '-v7.3');
-

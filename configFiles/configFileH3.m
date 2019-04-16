@@ -2,7 +2,7 @@ ops.chanMap             = 'F:\H1\2019-03-13_13-49-50\chanMap_H3probe.mat';
 % ops.chanMap = 1:ops.Nchan; % treated as linear probe if no chanMap file
 
 % sample rate
-ops.fs = 3000;  
+ops.fs = 32000;  
 
 % frequency for high pass filtering (150)
 ops.fshigh = 150;   
