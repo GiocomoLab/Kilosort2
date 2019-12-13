@@ -1,13 +1,13 @@
 %% you need to change most of the paths in this block
 
-addpath(genpath('D:\GitHub\KiloSort2')) % path to kilosort folder
-addpath('D:\GitHub\npy-matlab')
+addpath(genpath('C:\GitHub\KiloSort2')) % path to kilosort folder
+addpath('C:\GitHub\npy-matlab')
 
-pathToYourConfigFile = 'D:\GitHub\KiloSort2\configFiles'; % take from Github folder and put it somewhere else (together with the master_file)
-run(fullfile(pathToYourConfigFile, 'configFile384.m'))
-rootH = 'H:\';
+pathToYourConfigFile = 'C:\GitHub\KiloSort2\configFiles'; % take from Github folder and put it somewhere else (together with the master_file)
+run('C:\code\SiliconProbeCode\Standard_NP_Config.m')
+rootH = 'C:\';
 ops.fproc       = fullfile(rootH, 'temp_wh.dat'); % proc file on a fast SSD
-ops.chanMap = fullfile(pathToYourConfigFile, 'neuropixPhase3A_kilosortChanMap.mat');
+%ops.chanMap = fullfile(pathToYourConfigFile, 'neuropixPhase3A_kilosortChanMap.mat');
 
 ops.trange = [0 Inf]; % time range to sort
 ops.NchanTOT    = 384; % total number of channels in your recording

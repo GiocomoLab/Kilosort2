@@ -129,6 +129,7 @@ for ibatch = 1:Nbatch
         DATA(:,:,ibatch) = gather_try(datr);
     else
         datcpu  = gather_try(int16(datr));
+        % keyboard;
         fwrite(fidW, datcpu, 'int16');
     end
 end
