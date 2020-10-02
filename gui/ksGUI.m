@@ -1606,8 +1606,8 @@ classdef ksGUI < handle
             % look for a default ops file and load it
 %             if exist('defaultOps.mat')
 %                 load('defaultOps.mat', 'ops');
-            if exist('configFile384.m', 'file')
-                configFile384;  
+            if exist('StandardConfig_NeuropixelB1.m', 'file')
+                StandardConfig_NeuropixelB1;  
                 ops.trange      = [0 Inf];
             else
                 ops = [];
