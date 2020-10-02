@@ -1,8 +1,8 @@
-ops.chanMap             = 'D:\GitHub\KiloSort2\configFiles\neuropixPhase3A_kilosortChanMap.mat';
+ops.chanMap             = 'F:\H1\2019-03-13_13-49-50\chanMap_H3probe.mat';
 % ops.chanMap = 1:ops.Nchan; % treated as linear probe if no chanMap file
 
 % sample rate
-ops.fs = 30000;  
+ops.fs = 3000;  
 
 % frequency for high pass filtering (150)
 ops.fshigh = 150;   

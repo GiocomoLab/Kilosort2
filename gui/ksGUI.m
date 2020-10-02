@@ -572,8 +572,7 @@ classdef ksGUI < handle
             
             if ~isempty(obj.H.settings.ChooseFileEdt.String) && ...
                     ~strcmp(obj.H.settings.ChooseFileEdt.String, '...')
-                d = dir(obj.H.settings.ChooseFileEdt.String);
-                b = d.bytes;
+                b = get_file_size(obj.H.settings.ChooseFileEdt.String);
 
                 a = cast(0, 'int16'); % hard-coded for now, int16
                 q = whos('a');
@@ -684,6 +683,11 @@ classdef ksGUI < handle
                 obj.ops.throw_out_channels = true;
             end
             obj.H.settings.setMinfrEdt.String = num2str(obj.ops.minfr_goodchannels);
+
+            obj.ops.fs = str2num(obj.H.settings.setFsEdt.String);
+            if isempty(obj.ops.fs)||isnan(obj.ops.fs)
+                obj.ops.fs = 30000;
+            end
                         
             obj.ops.Th = str2num(obj.H.settings.setThEdt.String);
             if isempty(obj.ops.Th)||any(isnan(obj.ops.Th))
@@ -863,7 +867,7 @@ classdef ksGUI < handle
                     % filtered, whitened
                     obj.prepareForRun();
                     datAllF = ksFilter(datAll, obj.ops);
-                    datAllF = double(gather_try(datAllF));
+                    datAllF = double(gather(datAllF));
                     if isfield(obj.P, 'Wrot') && ~isempty(obj.P.Wrot)
                         %Wrot = obj.P.Wrot/obj.ops.scaleproc;
                         conn = obj.P.chanMap.connected;
@@ -1599,8 +1603,8 @@ classdef ksGUI < handle
             % look for a default ops file and load it
 %             if exist('defaultOps.mat')
 %                 load('defaultOps.mat', 'ops');
-            if exist('configFile384.m', 'file')
-                configFile384;  
+            if exist('StandardConfig_NeuropixelB1.m', 'file')
+                StandardConfig_NeuropixelB1;  
                 ops.trange      = [0 Inf];
             else
                 ops = [];
